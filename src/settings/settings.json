@@ -1,3 +1,4 @@
 {
-	"googleApplicationCredentials": "gcp-service-account.json"
+	"googleApplicationCredentials": "gcp-service-account.json",
+	"logLevel": "info"
 }

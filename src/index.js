@@ -1,6 +1,5 @@
 import { q as queueCreator } from './queue'
 import { redis } from './pubsub/redis'
-import { slack as slackCreator } from './slack'
 import { getSetting } from './settings'
 import { logger } from './logger'
 
@@ -9,18 +8,19 @@ const { publisherCreator, subscriberCreator } = redis({
 })
 
 Promise.all([
-	// publisherCreator(),
-	// subscriberCreator(),
-    // queueCreator(),
-    // loggerCreator({ getSetting })
+	publisherCreator(),
+	subscriberCreator(),
+    queueCreator(),
 ])
 .then(([
-	// { publish },
-	// { subscribe },
-	// { enqueue },
+	{ publish },
+	{ subscribe },
+	{ enqueue },
 ]) => {
-	// const slack = slackCreator({ publish })
 	return logger({
-		getSetting
+		getSetting,
+		subscribe,
+		enqueue,
+		publish
 	})
 })

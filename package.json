@@ -31,6 +31,7 @@
   "dependencies": {
     "@google-cloud/logging": "^2.0.0",
     "async": "^2.6.1",
-    "pub-sub-redis": "0.0.5"
+    "pub-sub-redis": "0.0.5",
+    "winston": "^3.0.0"
   }
 }
